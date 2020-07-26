@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MVCManagement.Models.Employee>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Managment</h2>
+
+<div id="tableDiv"></div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Custom_Scripts/BuildEmployeeTable.js"></script>
+}

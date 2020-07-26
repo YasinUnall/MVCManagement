@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MVCManagement.Models.Product>
+
+@*Look DataTable on the internet*@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Name</th>
+            <th>Supplier</th>
+            <th>Category</th>
+            <th>Quantity per Unit</th>
+            <th>Unit Price</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.SupplierID)</td>
+            <td>@Html.DisplayFor(modelItem => item.CategoryID)</td>
+            <td>@Html.DisplayFor(modelItem => item.QuantityPerUnit)</td>
+            <td>@Html.DisplayFor(modelItem => item.UnitPrice)</td>
+            <td>@Html.DisplayFor(modelItem => item.InitsInStock)</td>
+        </tr>
+    }
+</table>
