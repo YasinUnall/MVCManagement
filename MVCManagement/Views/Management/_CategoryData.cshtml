@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MVCManagement.Models.Category>
+
+@*Look DataTable on the internet*@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Category Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.CategoryName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+        </tr>
+    }
+</table>

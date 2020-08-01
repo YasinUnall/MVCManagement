@@ -13,11 +13,15 @@ namespace MVCManagement.Controllers
 
         IEnumerable<Employee> employees;
         IEnumerable<Product> products;
+        IEnumerable<Supplier> suppliers;
+        IEnumerable<Category> categories;
 
         public ManagementController()
         {
             employees = db.Employees.ToList();
             products = db.Products.ToList();
+            suppliers = db.Suppliers.ToList();
+            categories = db.Categories.ToList();
         }
 
         // GET: Managment
@@ -33,7 +37,17 @@ namespace MVCManagement.Controllers
 
         public ActionResult BuildProductTable()
         {
-            return PartialView();
+            return PartialView("_ProductData", products);
+        }
+
+        public ActionResult BuildSupplierTable()
+        {
+            return PartialView("_SupplierData", suppliers);
+        }
+
+        public ActionResult BuildCategoryTable()
+        {
+            return PartialView("_CategoryData", categories);
         }
 
         public PartialViewResult EmployeeData()

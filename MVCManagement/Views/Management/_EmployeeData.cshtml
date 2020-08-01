@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<MVCManagement.Models.Employee>
 
-@*Look DataTable on the internet*@
-
-<table class="table">
+<table class="table" id="employeeList">
     <thead class="thead-dark">
         <tr>
             <th>First Name</th>
@@ -13,15 +11,41 @@
             <th>Salary</th>
         </tr>
     </thead>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
-            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Email)</td>
-            <td>@Html.DisplayFor(modelItem => item.Title)</td>
-            <td>@Html.DisplayFor(modelItem => item.Age)</td>
-            <td>@Html.DisplayFor(modelItem => item.Salary)</td>
-        </tr>
-    }
+    @*@foreach (var item in Model)
+        {
+            <tr id="employeeList">
+                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+            </tr>
+        }*@
+
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var employees = $('#employeeList');
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/Management/GetEmployees',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (index, val) {
+                    employees.append( '<tr>' +
+                        '<td>' + val.FirstName + '</td>' +
+                        '<td>' + val.LastName + '</td>' +
+                        '<td>' + val.Email + '</td>' +
+                        '<td>' + val.Title + '</td>' +
+                        '<td>' + val.Age + '</td>' +
+                        '<td>' + val.Salary + '</td>'
+                        + '</tr>'
+                    )
+                })
+            }
+        })
+    })
+</script>

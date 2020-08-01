@@ -6,11 +6,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Managment</h2>
+<h2 class="page-header text-center">Managment</h2>
 
-<div id="tableDiv"></div>
+<br />
+
+<div class="row text-center">
+    <div class="col-md-2">
+        <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+            <button id="EmployeeButton" type="button" class="btn btn-default">Employees</button>
+            <button id="ProductButton" type="button" class="btn btn-default">Products</button>
+            <button id="SupplierButton" type="button" class="btn btn-default">Suppliers</button>
+            <button id="CategoryButton" type="button" class="btn btn-default">Categories</button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div id="tableDiv"></div>
+    </div>
+</div>
+
+
 
 @section Scripts {
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Custom_Scripts/BuildEmployeeTable.js"></script>
+    <script src="~/Custom_Scripts/BuildProductTable.js"></script>
+    <script src="~/Custom_Scripts/BuildSupplierTable.js"></script>
+    <script src="~/Custom_Scripts/BuildCategoryTable.js"></script>
 }
